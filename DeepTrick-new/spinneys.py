@@ -8,9 +8,10 @@ import Scraping_methods
 # {'label': 'title', 'type': 'tag', 'name': 'title', 'exists': True, 'isRange': 0, 'offset': 0, 'get_what': 'tag'}
 # {'label': 'title', 'type': 'tag', 'name': 'title', 'exists': True, 'isRange': 0, 'offset': 0, 'get_what': 'text'}
 # {'label': 'x', 'type': 'tag', 'name': 'title', 'exists': True, 'isRange': 1, 'start': 0, 'end': 4, 'get_what': 'attr', 'attr': 'class'}
-s=Service('chromedriver.exe')
-browser = webdriver.Chrome(service=s)
+# s=Service('chromedriver.exe')
+# browser = webdriver.Chrome(service=s)
 # browser = webdriver.Chrome('chromedriver.exe')
+browser = webdriver.Chrome()
 # link = "https://www.spinneyslebanon.com/bakery.html"
 # browser.get(link)
 # soup = BeautifulSoup(browser.page_source, 'lxml')
