@@ -1,3 +1,4 @@
+import chromedriver_autoinstaller
 from bs4 import BeautifulSoup
 from selenium import webdriver
 
@@ -7,7 +8,8 @@ import Scraping_methods
 # {'label': 'title', 'type': 'tag', 'name': 'title', 'exists': True, 'isRange': 0, 'offset': 0, 'get_what': 'text'}
 # {'label': 'x', 'type': 'tag', 'name': 'title', 'exists': True, 'isRange': 1, 'start': 0, 'end': 4, 'get_what': 'attr', 'attr': 'class'}
 
-browser = webdriver.Chrome(executable_path="chromedriver.exe")
+chromedriver_autoinstaller.install()
+browser = webdriver.Chrome()
 # link = "https://www.spinneyslebanon.com/bakery.html"
 # browser.get(link)
 # soup = BeautifulSoup(browser.page_source, 'lxml')
