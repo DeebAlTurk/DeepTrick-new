@@ -4,19 +4,9 @@ from selenium import webdriver
 
 import Scraping_methods
 
-# {'label': 'title', 'type': 'tag', 'name': 'title', 'exists': True, 'isRange': 0, 'offset': 0, 'get_what': 'tag'}
-# {'label': 'title', 'type': 'tag', 'name': 'title', 'exists': True, 'isRange': 0, 'offset': 0, 'get_what': 'text'}
-# {'label': 'x', 'type': 'tag', 'name': 'title', 'exists': True, 'isRange': 1, 'start': 0, 'end': 4, 'get_what': 'attr', 'attr': 'class'}
-
 chromedriver_autoinstaller.install()
 browser = webdriver.Chrome()
-# link = "https://www.spinneyslebanon.com/bakery.html"
-# browser.get(link)
-# soup = BeautifulSoup(browser.page_source, 'lxml')
-# next = "{'label': 'next', 'type': 'selector', 'name': 'a.action.next', 'exists': True, 'isRange': 0, 'offset': 0, 'get_what': 'attr', 'attr': 'href'}"
 gaint = "https://www.spinneyslebanon.com/promotionsDELMhttps://www.spinneyslebanon.com/seasonal.htmlDELMhttps://www.spinneyslebanon.com/alcohol.htmlDELMhttps://www.spinneyslebanon.com/beverages.htmlDELMhttps://www.spinneyslebanon.com/bakery.htmlDELMhttps://www.spinneyslebanon.com/deli-dairy-eggs.htmlDELMhttps://www.spinneyslebanon.com/fruits-vegetables.htmlDELMhttps://www.spinneyslebanon.com/meat-seafood.htmlDELMhttps://www.spinneyslebanon.com/food-cupboard.htmlDELMhttps://www.spinneyslebanon.com/snacks-candy.htmlDELMhttps://www.spinneyslebanon.com/cleaning-household.htmlDELMhttps://www.spinneyslebanon.com/beauty-personal-care.htmlDELMhttps://www.spinneyslebanon.com/baby-child.htmlDELMhttps://www.spinneyslebanon.com/petfectionDELMhttps://www.spinneyslebanon.com/world-foods.htmlDELMhttps://www.spinneyslebanon.com/home-outdoor.htmlDELMhttps://www.spinneyslebanon.com/electronics-appliances.htmlDELMhttps://www.spinneyslebanon.com/party-shop.htmlDELMhttps://www.spinneyslebanon.com/cigarettes.htmlDELMhttps://www.spinneyslebanon.com/gift-cards.html"
-# gaint_names = "protmotionsDELMseasonalDELMalcoholDELMbeveragesDELMbakeryDELMdeli-dairy-eggsDELMfruits-vegetablesDELMmeat-seafoodDELMfood-cupboardDELMsnacks-candyDELMcleaning-householdDELMbeauty-personal-careDELMbaby-childDELMpetfectionDELMworld-foodsDELMhome-outdoorDELMelectronics-appliancesDELMparty-shopDELMtobaccoDELMgift-cards"
-gaint_names = "bakeryDELMfruits-vegetables"
 links = gaint.split('DELM')
 
 names = []
@@ -79,13 +69,4 @@ for link in next_links:
             page_count = 1
     except:
         page_count = 1
-    # if names[i] in link:
-    #     Scraping_methods.convert_dict_to_json(Scraping_methods.scraper(soup, options, results), 4,
-    #                                           names[i] + "_page_" + str(page_count))
-    #     page_count += 1
-    # else:
-    #     i += 1
-    #     Scraping_methods.convert_dict_to_json(Scraping_methods.scraper(soup, options, results), 4,
-    #                                           names[i] + "_page_1")
-    #     page_count = 1
     results = {}
