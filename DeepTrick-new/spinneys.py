@@ -10,8 +10,8 @@ import Scraping_methods
 
 chromedriver_autoinstaller.install()
 browser = webdriver.Chrome()
-gaint = "https://www.spinneyslebanon.com/promotionsDELMhttps://www.spinneyslebanon.com/seasonal.htmlDELMhttps://www.spinneyslebanon.com/alcohol.htmlDELMhttps://www.spinneyslebanon.com/beverages.htmlDELMhttps://www.spinneyslebanon.com/bakery.htmlDELMhttps://www.spinneyslebanon.com/deli-dairy-eggs.htmlDELMhttps://www.spinneyslebanon.com/fruits-vegetables.htmlDELMhttps://www.spinneyslebanon.com/meat-seafood.htmlDELMhttps://www.spinneyslebanon.com/food-cupboard.htmlDELMhttps://www.spinneyslebanon.com/snacks-candy.htmlDELMhttps://www.spinneyslebanon.com/cleaning-household.htmlDELMhttps://www.spinneyslebanon.com/beauty-personal-care.htmlDELMhttps://www.spinneyslebanon.com/baby-child.htmlDELMhttps://www.spinneyslebanon.com/petfectionDELMhttps://www.spinneyslebanon.com/world-foods.htmlDELMhttps://www.spinneyslebanon.com/home-outdoor.htmlDELMhttps://www.spinneyslebanon.com/electronics-appliances.htmlDELMhttps://www.spinneyslebanon.com/party-shop.htmlDELMhttps://www.spinneyslebanon.com/cigarettes.htmlDELMhttps://www.spinneyslebanon.com/gift-cards.html"
-# gaint = "https://www.spinneyslebanon.com/bakery.html"
+# gaint = "https://www.spinneyslebanon.com/promotionsDELMhttps://www.spinneyslebanon.com/seasonal.htmlDELMhttps://www.spinneyslebanon.com/alcohol.htmlDELMhttps://www.spinneyslebanon.com/beverages.htmlDELMhttps://www.spinneyslebanon.com/bakery.htmlDELMhttps://www.spinneyslebanon.com/deli-dairy-eggs.htmlDELMhttps://www.spinneyslebanon.com/fruits-vegetables.htmlDELMhttps://www.spinneyslebanon.com/meat-seafood.htmlDELMhttps://www.spinneyslebanon.com/food-cupboard.htmlDELMhttps://www.spinneyslebanon.com/snacks-candy.htmlDELMhttps://www.spinneyslebanon.com/cleaning-household.htmlDELMhttps://www.spinneyslebanon.com/beauty-personal-care.htmlDELMhttps://www.spinneyslebanon.com/baby-child.htmlDELMhttps://www.spinneyslebanon.com/petfectionDELMhttps://www.spinneyslebanon.com/world-foods.htmlDELMhttps://www.spinneyslebanon.com/home-outdoor.htmlDELMhttps://www.spinneyslebanon.com/electronics-appliances.htmlDELMhttps://www.spinneyslebanon.com/party-shop.htmlDELMhttps://www.spinneyslebanon.com/cigarettes.htmlDELMhttps://www.spinneyslebanon.com/gift-cards.html"
+gaint = "https://www.spinneyslebanon.com/bakery.html"
 links = gaint.split('DELM')
 next_links = []
 
@@ -73,8 +73,9 @@ for link in next_links:
     options.append(links_options)
     options.append(prices_options)
     print(f"link : {link}\nName : {names[i]}\npage_count : {page_count}")
-    Scraping_methods.convert_dict_to_json(Scraping_methods.scraper(soup, options, results), 4,
-                                          f"{names[i]}_page_{page_count}")
+    if not os.path.exists(f"{names[i]}_page_{page_count}.json"):
+        Scraping_methods.convert_dict_to_json(Scraping_methods.scraper(soup, options, results), 4,
+                                              f"{names[i]}_page_{page_count}")
     file = open("targets", 'wb')
     pickle.dump(next_links[i+1::], file)
     file.close()
