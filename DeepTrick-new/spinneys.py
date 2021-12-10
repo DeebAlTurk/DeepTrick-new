@@ -10,11 +10,10 @@ import Scraping_methods
 
 chromedriver_autoinstaller.install()
 browser = webdriver.Chrome()
-gaint = "https://www.spinneyslebanon.com/promotionsDELMhttps://www.spinneyslebanon.com/seasonal.htmlDELMhttps://www.spinneyslebanon.com/alcohol.htmlDELMhttps://www.spinneyslebanon.com/beverages.htmlDELMhttps://www.spinneyslebanon.com/bakery.htmlDELMhttps://www.spinneyslebanon.com/deli-dairy-eggs.htmlDELMhttps://www.spinneyslebanon.com/fruits-vegetables.htmlDELMhttps://www.spinneyslebanon.com/meat-seafood.htmlDELMhttps://www.spinneyslebanon.com/food-cupboard.htmlDELMhttps://www.spinneyslebanon.com/snacks-candy.htmlDELMhttps://www.spinneyslebanon.com/cleaning-household.htmlDELMhttps://www.spinneyslebanon.com/beauty-personal-care.htmlDELMhttps://www.spinneyslebanon.com/baby-child.htmlDELMhttps://www.spinneyslebanon.com/petfectionDELMhttps://www.spinneyslebanon.com/world-foods.htmlDELMhttps://www.spinneyslebanon.com/home-outdoor.htmlDELMhttps://www.spinneyslebanon.com/electronics-appliances.htmlDELMhttps://www.spinneyslebanon.com/party-shop.htmlDELMhttps://www.spinneyslebanon.com/cigarettes.htmlDELMhttps://www.spinneyslebanon.com/gift-cards.html"
-# gaint = "https://www.spinneyslebanon.com/bakery.html"
+gaint = "https://www.spinneyslebanon.com/promotionsDELMhttps://www.spinneyslebanon.com/seasonal.htmlDELMhttps://www.spinneyslebanon.com/beverages.htmlDELMhttps://www.spinneyslebanon.com/bakery.htmlDELMhttps://www.spinneyslebanon.com/deli-dairy-eggs.htmlDELMhttps://www.spinneyslebanon.com/fruits-vegetables.htmlDELMhttps://www.spinneyslebanon.com/meat-seafood.htmlDELMhttps://www.spinneyslebanon.com/food-cupboard.htmlDELMhttps://www.spinneyslebanon.com/snacks-candy.htmlDELMhttps://www.spinneyslebanon.com/cleaning-household.htmlDELMhttps://www.spinneyslebanon.com/beauty-personal-care.htmlDELMhttps://www.spinneyslebanon.com/baby-child.htmlDELMhttps://www.spinneyslebanon.com/petfectionDELMhttps://www.spinneyslebanon.com/world-foods.htmlDELMhttps://www.spinneyslebanon.com/home-outdoor.htmlDELMhttps://www.spinneyslebanon.com/electronics-appliances.htmlDELMhttps://www.spinneyslebanon.com/party-shop.htmlDELMhttps://www.spinneyslebanon.com/cigarettes.html"
+# gaint = "https://www.spinneyslebanon.com/beauty-personal-care.html?p=9&stock=1"
 links = gaint.split('DELM')
 next_links = []
-
 if not path.exists('targets') or path.getsize('targets') == 0:
     for link in links:
         browser.get(link)
@@ -47,8 +46,8 @@ images_options = {'label': 'images', 'type': 'selector', 'name': '.product-image
                   'isRange': 1, 'start': 0, 'end': 54, 'get_what': 'attr', 'attr': 'src'}
 names_options = {'label': 'names', 'type': 'selector', 'name': '.product-item-link', 'exists': True,
                  'isRange': 1, 'start': 0, 'end': 54, 'get_what': 'text'}
-prices_options = {'label': 'prices', 'type': 'selector', 'name': '.price', 'exists': True,
-                  'isRange': 1, 'start': 0, 'end': 54, 'get_what': 'text'}
+prices_options = {'label': 'prices', 'type': 'selector', 'name': '.price-wrapper', 'exists': True,
+                  'isRange': 1, 'start': 0, 'end': 54, 'get_what': 'attr','attr':'data-price-amount'}
 
 links_options = {'label': 'links', 'type': 'selector', 'name': '.product-item-link', 'exists': True,
                  'isRange': 1, 'start': 0, 'end': 54, 'get_what': 'attr', 'attr': 'href'}
